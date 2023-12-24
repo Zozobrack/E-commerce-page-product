@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+<body>
+
+  <header>
+    
+    <nav>
+
+      <img src="images/logo.svg" class="img-logo">
+        
+        <ul>
+          
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li> 
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+       
+        </ul>
+
+        <img src="images/icon-cart.svg" class="img-cart">
+        <img src="images/image-avatar.png" class="img-avatar">
+    
+    </nav>
+
+  </header>
+
+  <div class="cart">
+    
+    <div class="divCart">
+      <p class="pCart">Cart</p>
+    </div>
+
+    <p class="vide">Your cart is empty.</p>
+    
+    <div class="cartContent">
+          <img src="images\image-product-1-thumbnail.jpg">
+          <img src="images/icon-delete.svg">
+          <p >Fall Limited Edition Sneakers</p>
+          <p>$125.00 x <span id="1">0</span> <strong> <span id="2">0</span> </strong> </p> 
+          <button>Checkout</button>
+    </div>
+
+  
+  </div>
+
+  <main>
+    
+    <section class="left">
+      
+      <div class="imgContaineur">
+        <img src="images/image-product-1.jpg">
+      </div>
+
+      <div class="flex-containeur">
+        
+        <div class="spe" ><img id="1" src="images/image-product-1-thumbnail.jpg"></div>
+        <div ><img id="2" src="images/image-product-2-thumbnail.jpg"></div>
+        <div ><img id="3" src="images/image-product-3-thumbnail.jpg"></div>
+        <div ><img id="4" src="images/image-product-4-thumbnail.jpg"></div>
+      
+      </div>
+    
+    </section>
+
+    <section class="right">
+
+        <p class="pSneakerCompany">Sneaker Company</p>
+
+        <h2>Fall Limited Edition Sneakers</h2>
+
+        <p class="pDescription">   
+              These low-profile sneakers are your perfect casual wear companion. Featuring a 
+              durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+
+        <p>$125.00 <span>50%</span></p>
+
+        <p>$250.00</p>
+
+        <div>
+          <img id="moins"src="images/icon-minus.svg">
+          <span>0</span>
+          <img id="plus"src="images/icon-plus.svg">
+        </div>
+
+        <button id="addCart">
+         
+          <img src="images/icon-cart.svg">
+          
+          <p>Add to cart</p>
+       
+        </button>
+      
+    </section>
+
+    <section class="lightBox">
+
+      <div class="LBImgContaineur"><img src="images/image-product-1.jpg"></div>
+      
+      <div class="closeIconContaineur"><img src="images/icon-close.svg"></div>
+      
+      <button class="btnNext"><img src="images/icon-next.svg"></button>
+      
+      <button class="btnPrevioius"><img src="images/icon-previous.svg"></button>
+
+      <div class="flex-containeur2">
+        
+        <div class="spe2"><img id="1" src="images/image-product-1-thumbnail.jpg"></div>
+        <div ><img id="2" src="images/image-product-2-thumbnail.jpg"></div>
+        <div ><img id="3" src="images/image-product-3-thumbnail.jpg"></div>
+        <div ><img id="4" src="images/image-product-4-thumbnail.jpg"></div>
+      
+      </div>
+
+
+    </section>
+  
+  </main>
+
+  
+ <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>!-->
+
+  <script type="text/javascript">
+    
+    const thumbnails = document.querySelectorAll(".flex-containeur div img")
+    const grandeVignette = document.querySelector(".imgContaineur img")
+    const moinsPlus = document.querySelectorAll(".right div img")
+    const quantity = document.querySelector(".right div span")
+    const lightBox = document.querySelector(".lightBox")
+    const right = document.querySelector(".right")
+    const left = document.querySelector(".left")
+    const header = document.querySelector("header")
+    const close = document.querySelector(".closeIconContaineur img")
+    const next = document.querySelector(".btnNext")
+    const previous = document.querySelector(".btnPrevioius")
+    const lightBoxNails = document.querySelectorAll(".flex-containeur2 div")
+    const lightBoxImgNails = document.querySelectorAll(".flex-containeur2 div img")
+    const lightBoxImg = document.querySelector(".LBImgContaineur img")
+    const div1 = document.querySelector(".flex-containeur2 div")
+    const div2 = document.querySelector(".flex-containeur2 div + div")
+    const div3 = document.querySelector(".flex-containeur2 div + div + div")
+    const div4 = document.querySelector(".flex-containeur2 div + div + div + div")
+    const cartButton = document.querySelector(".img-cart")
+    const cart  = document.querySelector(".cart")
+    const addCart = document.querySelector("#addCart")
+    const pVide = document.querySelector(".vide")
+    const cartContent = document.querySelector(".cartContent")
+    const span1  = document.getElementById("1")
+    const span2  = document.getElementById("2")
+    const trashButton = document.querySelector(".cartContent  img + img")
+    const checkoutButton = document.querySelector(".cartContent button")
+
+    checkoutButton.addEventListener("click",(e)=>{
+      location.reload();
+    })
+
+    trashButton.addEventListener("click",(e)=>{
+      cartContent.style.display = "none"
+      pVide.style.display = "block"
+    })
+    
+    addCart.addEventListener("click",(e)=>{
+        cart.style.display = "block"
+        pVide.style.display = "none"
+        cartContent.style.display = "block"
+        span1.innerText = quantity.innerText
+        span2.innerText = `$ ${quantity.innerText*125}.00`
+        span2.style.marginLeft = "5px"
+        span2.style.color = "black"
+        
+    })
+
+
+
+    cartButton.addEventListener("click",(e)=>{
+      if(cart.style.display === "block"){
+        cart.style.display = "none"
+      }else{
+        cart.style.display = "block"
+      }
+      
+    })
+
+
+    next.addEventListener("click",(e)=>{
+      const b  = document.getElementsByClassName("spe2")
+        
+        if(b[0].firstChild.getAttribute("id") === '1'){
+          
+          lightBoxImg.src = "images/image-product-2.jpg"
+          div1.removeAttribute("class")
+          div2.setAttribute("class","spe2")
+          
+        
+        }else if(b[0].firstChild.getAttribute("id") === '2'){
+          
+          lightBoxImg.src = "images/image-product-3.jpg"
+          div2.removeAttribute("class")
+          div3.setAttribute("class","spe2")
+        
+        }else if(b[0].firstChild.getAttribute("id") === '3'){
+          
+          lightBoxImg.src = "images/image-product-4.jpg"
+          div3.removeAttribute("class")
+          div4.setAttribute("class","spe2")
+        
+        }else if(b[0].firstChild.getAttribute("id") === '4'){
+          
+          lightBoxImg.src = "images/image-product-1.jpg"
+          div4.removeAttribute("class")
+          div1.setAttribute("class","spe2")
+        }
+   
+    })
+
+
+      previous.addEventListener("click",(e)=>{
+        const b  = document.getElementsByClassName("spe2")
+        
+          if(b[0].firstChild.getAttribute("id") === '1'){
+            
+            lightBoxImg.src = "images/image-product-4.jpg"
+            div1.removeAttribute("class")
+            div4.setAttribute("class","spe2")
+            
+          
+          }else if(b[0].firstChild.getAttribute("id") === '4'){
+            
+            lightBoxImg.src = "images/image-product-3.jpg"
+            div4.removeAttribute("class")
+            div3.setAttribute("class","spe2")
+          
+          }else if(b[0].firstChild.getAttribute("id") === '3'){
+            
+            lightBoxImg.src = "images/image-product-2.jpg"
+            div3.removeAttribute("class")
+            div2.setAttribute("class","spe2")
+          
+          }else if(b[0].firstChild.getAttribute("id") === '2'){
+            
+            lightBoxImg.src = "images/image-product-1.jpg"
+            div2.removeAttribute("class")
+            div1.setAttribute("class","spe2")
+          }
+   
+    })
+
+    close.addEventListener("click",(e)=>{
+        header.style.filter = "opacity(1)"
+        right.style.filter = "opacity(1)"
+        left.style.filter = "opacity(1)"
+        lightBox.style.display = "none"
+    })
+
+
+    grandeVignette.addEventListener("click",(e)=>{
+      header.style.filter = "opacity(0.50)"
+      right.style.filter = "opacity(0.50)"
+      left.style.filter = "opacity(0.50)"
+      lightBox.style.display = "block"
+    })
+
+
+    moinsPlus.forEach((mp)=>{
+        mp.addEventListener("click",(e)=>{
+          
+          if( e.currentTarget.getAttribute("id") === "plus"){
+
+             r = quantity.innerText*1+1
+             quantity.innerText = r.toString()
+
+            }else if(e.currentTarget.getAttribute("id") === "moins" && quantity.innerText !== "0" ){
+              r = quantity.innerText*1-1
+             quantity.innerText = r.toString()
+            }
+
+        })
+    })
+
+
+    thumbnails.forEach((tn)=>{
+      
+      tn.addEventListener("click",(e)=>{
+          
+          document.querySelector(".spe").removeAttribute("class")
+          
+          e.currentTarget.setAttribute("class","spe")
+          
+          if( e.currentTarget.getAttribute("id")==1 ){
+
+            grandeVignette.setAttribute("src","images/image-product-1.jpg")
+
+          }else if( e.currentTarget.getAttribute("id")==2 ){
+            
+            grandeVignette.setAttribute("src","images/image-product-2.jpg")
+          
+          }else if( e.currentTarget.getAttribute("id")==3 ){
+
+             grandeVignette.setAttribute("src","images/image-product-3.jpg")
+          
+          }else if(e.currentTarget.getAttribute("id")==4){
+
+              grandeVignette.setAttribute("src","images/image-product-4.jpg")
+          }
+      
+      })
+    
+    })
+  
+  </script>
+
+</body>
+</html>
